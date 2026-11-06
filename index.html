@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenshi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="traces" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      
+      <linearGradient id="sharpGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
+        <stop offset="0"    stop-color="#fff"/>
+        <stop offset="0.25" stop-color="#fff"/>   
+        <stop offset="0.35" stop-color="#000"/>   
+        <stop offset="0.65" stop-color="#000"/>
+        <stop offset="0.75" stop-color="#fff"/> 
+        <stop offset="1"    stop-color="#fff"/>
+      </linearGradient>
+ 
+      
+      <linearGradient id="blurGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
+        <stop offset="0"    stop-color="#000"/>
+        <stop offset="0.25" stop-color="#000"/>   
+        <stop offset="0.35" stop-color="#fff"/>   
+        <stop offset="0.4"  stop-color="#fff"/>   
+        <stop offset="0.45" stop-color="#000"/> 
+        <stop offset="0.55" stop-color="#000"/>  
+        <stop offset="0.6"  stop-color="#fff"/>   
+        <stop offset="0.65" stop-color="#fff"/>  
+        <stop offset="0.75" stop-color="#000"/>   
+        <stop offset="1"    stop-color="#000"/>
+      </linearGradient>
+
+      <mask id="sharpMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#sharpGrad)"/>
+      </mask>
+      <mask id="blurMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#blurGrad)"/>
+      </mask>
+
+      <filter id="traceBlur" filterUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <feGaussianBlur stdDeviation="2"/>
+      </filter>
+
+     
+      <g id="traceSrc">
+     
+        <g class="trace">
+          <path class="trace-path" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <circle class="trace-node" cx="0" cy="120" r="3"/>
+          <circle class="trace-node" cx="120" cy="120" r="2.5"/>
+          <circle class="trace-node" cx="160" cy="160" r="2.5"/>
+          <circle class="trace-node" cx="360" cy="160" r="2.5"/>
+          <circle class="trace-node" cx="400" cy="200" r="2.5"/>
+          <circle class="trace-node" cx="560" cy="200" r="2.5"/>
+          <circle class="trace-node" cx="600" cy="240" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="288" r="3"/>
+        </g>
+
+       
+        <g class="trace">
+          <path class="trace-path" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <circle class="trace-node" cx="0" cy="380" r="3"/>
+          <circle class="trace-node" cx="200" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="240" cy="340" r="2.5"/>
+          <circle class="trace-node" cx="440" cy="340" r="2.5"/>
+          <circle class="trace-node" cx="480" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="600" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="380" r="3"/>
+        </g>
+
+       
+        <g class="trace">
+          <path class="trace-path" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <circle class="trace-node" cx="0" cy="660" r="3"/>
+          <circle class="trace-node" cx="140" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="180" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="380" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="420" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="540" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="580" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="700" r="3"/>
+        </g>
+
+        
+        <g class="trace">
+          <path class="trace-path" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <circle class="trace-node" cx="1440" cy="180" r="3"/>
+          <circle class="trace-node" cx="1360" cy="180" r="2.5"/>
+          <circle class="trace-node" cx="1320" cy="220" r="2.5"/>
+          <circle class="trace-node" cx="1160" cy="220" r="2.5"/>
+          <circle class="trace-node" cx="1120" cy="260" r="2.5"/>
+          <circle class="trace-node" cx="960" cy="260" r="2.5"/>
+          <circle class="trace-node" cx="920" cy="300" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="300" r="3"/>
+        </g>
+
+        
+        <g class="trace">
+          <path class="trace-path" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <circle class="trace-node" cx="1440" cy="420" r="3"/>
+          <circle class="trace-node" cx="1340" cy="420" r="2.5"/>
+          <circle class="trace-node" cx="1300" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="1100" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="1060" cy="500" r="2.5"/>
+          <circle class="trace-node" cx="860" cy="500" r="2.5"/>
+          <circle class="trace-node" cx="820" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="460" r="3"/>
+        </g>
+
+        
+        <g class="trace">
+          <path class="trace-path" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <circle class="trace-node" cx="1440" cy="640" r="3"/>
+          <circle class="trace-node" cx="1320" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="1280" cy="680" r="2.5"/>
+          <circle class="trace-node" cx="1100" cy="680" r="2.5"/>
+          <circle class="trace-node" cx="1060" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="880" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="640" r="3"/>
+        </g>
+      </g>
+    </defs>
+
+    
+    <g mask="url(#sharpMask)"><use href="#traceSrc"/></g>
+    
+    <g mask="url(#blurMask)" filter="url(#traceBlur)"><use href="#traceSrc"/></g>
+  </svg>
+
+  <div class="bg"></div>
+
+  <main>
+    <div class="profile">
+      <div class="avatar"></div>
+      <h1 class="username">Tenshi</h1>
+    </div>
+
+    <nav class="links">
+      <a href="#about" class="link-btn">
+        <svg class="icon" viewBox="0 0 64 64" fill="currentColor" stroke="none">
+          <path fill-rule="evenodd" d="
+            M32 13 L42 14 L52 3 L54 24 L61 36 L52 41 L55 50 L43 50 L37 60 L32 62
+            L27 60 L21 50 L9 50 L12 41 L3 36 L10 24 L12 3 L22 14 Z
+            M15 27 L27 32 L24 35 L15 31 Z
+            M49 27 L37 32 L40 35 L49 31 Z
+            M26 50 L38 50 L32 56 Z"/>
+        </svg>
+        <span>About Me</span>
+      </a>
+
+      <a href="https://x.com/tenshiwusky" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+        <span>Twitter</span>
+      </a>
+
+      <a href="https://bsky.app/" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
+        <span>Bluesky</span>
+      </a>
+
+      <a href="https://instagram.com/" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://www.furaffinity.net/user/tenshiwusky" class="link-btn" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <g transform="rotate(45 12 12)">
+            <path d="M12 12.5 C14.6 12.5 17.8 14.8 17.8 17.6 C17.8 19.8 16.2 21 14.3 21 C13.2 21 12.6 20.5 12 20.5 C11.4 20.5 10.8 21 9.7 21 C7.8 21 6.2 19.8 6.2 17.6 C6.2 14.8 9.4 12.5 12 12.5 Z"/>
+            <ellipse cx="9" cy="5.8" rx="2" ry="2.8"/>
+            <ellipse cx="15" cy="5.8" rx="2" ry="2.8"/>
+            <ellipse cx="3.9" cy="11" rx="1.8" ry="2.6" transform="rotate(-25 3.9 11)"/>
+            <ellipse cx="20.1" cy="11" rx="1.8" ry="2.6" transform="rotate(25 20.1 11)"/>
+          </g>
+        </svg>
+        <span>Fur Affinity</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
