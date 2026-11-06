@@ -1,2 +1,2 @@
 # website
-Personal site to host my account links.
+Site to host my account links.
