@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Tenshi</title>
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  
+  <svg class="traces" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sharpGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
+        <stop offset="0"    stop-color="#fff"/>
+        <stop offset="0.25" stop-color="#fff"/>
+        <stop offset="0.35" stop-color="#000"/>
+        <stop offset="0.65" stop-color="#000"/>
+        <stop offset="0.75" stop-color="#fff"/>
+        <stop offset="1"    stop-color="#fff"/>
+      </linearGradient>
+      <linearGradient id="blurGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
+        <stop offset="0"    stop-color="#000"/>
+        <stop offset="0.25" stop-color="#000"/>
+        <stop offset="0.35" stop-color="#fff"/>
+        <stop offset="0.4"  stop-color="#fff"/>
+        <stop offset="0.45" stop-color="#000"/>
+        <stop offset="0.55" stop-color="#000"/>
+        <stop offset="0.6"  stop-color="#fff"/>
+        <stop offset="0.65" stop-color="#fff"/>
+        <stop offset="0.75" stop-color="#000"/>
+        <stop offset="1"    stop-color="#000"/>
+      </linearGradient>
+      <mask id="sharpMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#sharpGrad)"/>
+      </mask>
+      <mask id="blurMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#blurGrad)"/>
+      </mask>
+      <filter id="traceBlur" filterUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
+        <feGaussianBlur stdDeviation="2"/>
+      </filter>
+      <g id="traceSrc">
+        <g class="trace">
+          <path class="trace-path" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <circle class="trace-node" cx="0" cy="120" r="3"/>
+          <circle class="trace-node" cx="120" cy="120" r="2.5"/>
+          <circle class="trace-node" cx="160" cy="160" r="2.5"/>
+          <circle class="trace-node" cx="360" cy="160" r="2.5"/>
+          <circle class="trace-node" cx="400" cy="200" r="2.5"/>
+          <circle class="trace-node" cx="560" cy="200" r="2.5"/>
+          <circle class="trace-node" cx="600" cy="240" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="288" r="3"/>
+        </g>
+        <g class="trace">
+          <path class="trace-path" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <circle class="trace-node" cx="0" cy="380" r="3"/>
+          <circle class="trace-node" cx="200" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="240" cy="340" r="2.5"/>
+          <circle class="trace-node" cx="440" cy="340" r="2.5"/>
+          <circle class="trace-node" cx="480" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="600" cy="380" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="380" r="3"/>
+        </g>
+        <g class="trace">
+          <path class="trace-path" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <circle class="trace-node" cx="0" cy="660" r="3"/>
+          <circle class="trace-node" cx="140" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="180" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="380" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="420" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="540" cy="660" r="2.5"/>
+          <circle class="trace-node" cx="580" cy="700" r="2.5"/>
+          <circle class="trace-node" cx="648" cy="700" r="3"/>
+        </g>
+        <g class="trace">
+          <path class="trace-path" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <circle class="trace-node" cx="1440" cy="180" r="3"/>
+          <circle class="trace-node" cx="1360" cy="180" r="2.5"/>
+          <circle class="trace-node" cx="1320" cy="220" r="2.5"/>
+          <circle class="trace-node" cx="1160" cy="220" r="2.5"/>
+          <circle class="trace-node" cx="1120" cy="260" r="2.5"/>
+          <circle class="trace-node" cx="960" cy="260" r="2.5"/>
+          <circle class="trace-node" cx="920" cy="300" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="300" r="3"/>
+        </g>
+        <g class="trace">
+          <path class="trace-path" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <circle class="trace-node" cx="1440" cy="420" r="3"/>
+          <circle class="trace-node" cx="1340" cy="420" r="2.5"/>
+          <circle class="trace-node" cx="1300" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="1100" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="1060" cy="500" r="2.5"/>
+          <circle class="trace-node" cx="860" cy="500" r="2.5"/>
+          <circle class="trace-node" cx="820" cy="460" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="460" r="3"/>
+        </g>
+        <g class="trace">
+          <path class="trace-path" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <circle class="trace-node" cx="1440" cy="640" r="3"/>
+          <circle class="trace-node" cx="1320" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="1280" cy="680" r="2.5"/>
+          <circle class="trace-node" cx="1100" cy="680" r="2.5"/>
+          <circle class="trace-node" cx="1060" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="880" cy="640" r="2.5"/>
+          <circle class="trace-node" cx="792" cy="640" r="3"/>
+        </g>
+      </g>
+    </defs>
+    <g mask="url(#sharpMask)"><use href="#traceSrc"/></g>
+    <g mask="url(#blurMask)" filter="url(#traceBlur)"><use href="#traceSrc"/></g>
+  </svg>
+
+  <div class="bg"></div>
+
+  <main>
+    <div class="profile">
+      <a class="avatar" href="index.html">
+        <img src="images/avatar.png" alt="Avatar" />
+      </a>
+      <h1 class="page-title">About Me</h1>
+    </div>
+    
+    <nav class="back-link">
+      <a href="index.html" class="link-btn">
+        <div class="link-inner">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          <span>Back</span>
+        </div>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
