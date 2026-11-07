@@ -23,6 +23,45 @@
   object-fit: cover;
 }
 
+.about-content {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.about-blurb {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 2rem;
+  max-width: var(--max-w);
+}
+
+.refsheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  width: 200%;
+}
+
+.refsheet img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.refsheet figcaption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.refsheet figcaption a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .page-title {
   font-size: 2rem;
   font-weight: 700;
