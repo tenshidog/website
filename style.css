@@ -70,7 +70,7 @@ body {
   color: var(--text);
 }
 
-/* ── Background ─────────────────────────────────── */
+
 .bg {
   position: fixed;
   inset: 0;
@@ -81,7 +81,7 @@ body {
     var(--bg);
 }
 
-/* Subtle animated grain */
+
 .bg::after {
   content: '';
   position: fixed;
@@ -91,7 +91,13 @@ body {
   pointer-events: none;
 }
 
-/* ── Circuit Traces ───────────────────────────────── */
+
+body[data-bg="night-sky"] .bg,
+body[data-bg="night-sky"] .traces {
+  display: none;
+}
+
+
 .traces {
   position: fixed;
   inset: 0;
@@ -235,11 +241,6 @@ main {
   background-clip: text;
 }
 
-.bio {
-  margin-top: 0.4rem;
-  font-size: 0.925rem;
-  color: var(--muted);
-}
 
 
 
@@ -404,12 +405,211 @@ main {
 }
 
 
-.trace-blur {
+body[data-bg="night-sky"] {
+  overflow: hidden;
+}
+
+body[data-bg="night-sky"] .night-sky {
   position: fixed;
   inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #020111 0%,
+    #0a0e2a 30%,
+    #0d1442 60%,
+    #0a0f3a 80%,
+    #05081f 100%
+  );
+  overflow: hidden;
+}
+
+
+body[data-bg="night-sky"] .stars-layer {
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask-image: radial-gradient(ellipse 10% 40% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 30%, transparent 40%);
+}
+
+body[data-bg="night-sky"] .star {
+  position: absolute;
+  background: #fff;
+}
+
+body[data-bg="night-sky"] .star-sm { width: 1px; height: 1px; opacity: 0.6; }
+body[data-bg="night-sky"] .star-md { width: 2px; height: 2px; opacity: 0.75; }
+body[data-bg="night-sky"] .star-lg { width: 2.5px; height: 2.5px; opacity: 0.9; border-radius: 0; }
+body[data-bg="night-sky"] .star-xl { width: 3px; height: 3px; opacity: 1; border-radius: 0; }
+
+
+body[data-bg="night-sky"] .star-lg::before,
+body[data-bg="night-sky"] .star-lg::after,
+body[data-bg="night-sky"] .star-xl::before,
+body[data-bg="night-sky"] .star-xl::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body[data-bg="night-sky"] .star-lg::before,
+body[data-bg="night-sky"] .star-xl::before {
+  width: 100%;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+body[data-bg="night-sky"] .star-lg::after,
+body[data-bg="night-sky"] .star-xl::after {
+  width: 1px;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+body[data-bg="night-sky"] .star-xl::before,
+body[data-bg="night-sky"] .star-xl::after {
+  box-shadow: 0 0 4px 1px rgba(200, 230, 255, 0.5);
+}
+
+
+@keyframes twinkle-1 {
+  0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 1;   transform: scale(1.4) rotate(45deg); }
+}
+@keyframes twinkle-2 {
+  0%, 100% { opacity: 0.2; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 0.9; transform: scale(1.3) rotate(90deg); }
+}
+@keyframes twinkle-3 {
+  0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+  30%      { opacity: 1;   transform: scale(1.5) rotate(45deg); }
+  70%      { opacity: 0.4; transform: scale(0.9) rotate(90deg); }
+}
+
+body[data-bg="night-sky"] .twinkle-1 { animation: twinkle-1 var(--dur, 3s) ease-in-out infinite var(--delay, 0s); }
+body[data-bg="night-sky"] .twinkle-2 { animation: twinkle-2 var(--dur, 4s) ease-in-out infinite var(--delay, 0s); }
+body[data-bg="night-sky"] .twinkle-3 { animation: twinkle-3 var(--dur, 5s) ease-in-out infinite var(--delay, 0s); }
+
+
+body[data-bg="night-sky"] .aurora-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0.55;
   pointer-events: none;
+}
+
+body[data-bg="night-sky"] .aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  mix-blend-mode: screen;
+}
+
+body[data-bg="night-sky"] .aurora-1 {
+  bottom: 45%; left: -20%; width: 70%; height: 30%;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(52, 255, 150, 0.4) 20%,
+    rgba(52, 255, 180, 0.5) 40%,
+    rgba(100, 220, 255, 0.35) 60%, transparent 80%);
+  animation: aurora-wave-1 12s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+body[data-bg="night-sky"] .aurora-2 {
+  bottom: 40%; left: 10%; width: 65%; height: 25%;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(100, 200, 255, 0.3) 15%,
+    rgba(150, 255, 200, 0.45) 45%,
+    rgba(52, 255, 150, 0.35) 70%, transparent 100%);
+  animation: aurora-wave-2 15s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+body[data-bg="night-sky"] .aurora-3 {
+  bottom: 50%; left: 30%; width: 50%; height: 20%;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(180, 100, 255, 0.2) 20%,
+    rgba(52, 255, 180, 0.4) 50%,
+    rgba(100, 220, 255, 0.25) 80%, transparent 100%);
+  animation: aurora-wave-3 18s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+body[data-bg="night-sky"] .aurora-4 {
+  bottom: 35%; left: -10%; width: 80%; height: 22%;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(52, 200, 150, 0.25) 25%,
+    rgba(100, 255, 220, 0.35) 55%,
+    rgba(52, 255, 150, 0.2) 85%, transparent 100%);
+  animation: aurora-wave-1 20s ease-in-out infinite reverse;
+  transform-origin: center bottom;
+}
+
+@keyframes aurora-wave-1 {
+  0%, 100% { transform: translateX(0) scaleX(1) scaleY(1) rotate(-1deg); opacity: 0.6; }
+  25%      { transform: translateX(8%) scaleX(1.1) scaleY(1.2) rotate(0.5deg); opacity: 0.8; }
+  50%      { transform: translateX(3%) scaleX(0.95) scaleY(0.85) rotate(1deg); opacity: 0.5; }
+  75%      { transform: translateX(-5%) scaleX(1.05) scaleY(1.15) rotate(-0.5deg); opacity: 0.7; }
+}
+@keyframes aurora-wave-2 {
+  0%, 100% { transform: translateX(0) scaleX(1) scaleY(1) rotate(0.5deg); opacity: 0.5; }
+  33%      { transform: translateX(-10%) scaleX(1.15) scaleY(0.9) rotate(-0.5deg); opacity: 0.75; }
+  66%      { transform: translateX(6%) scaleX(0.9) scaleY(1.2) rotate(1deg); opacity: 0.4; }
+}
+@keyframes aurora-wave-3 {
+  0%, 100% { transform: translateX(0) scaleX(1) scaleY(1) rotate(-0.5deg); opacity: 0.45; }
+  50%      { transform: translateX(-12%) scaleX(1.2) scaleY(0.8) rotate(1.5deg); opacity: 0.7; }
+}
+
+
+body[data-bg="night-sky"] .shooting-star {
+  position: absolute;
+  z-index: 1;
+  transform: rotate(var(--shoot-angle, 25deg));
+  transform-origin: 0 50%;
+}
+body[data-bg="night-sky"] .shooting-star-track {
+  position: absolute;
+  top: 0; left: 0; width: 300px; height: 2px;
+  transform: translateX(-300px);
+  opacity: 0;
+  animation: shoot var(--shoot-cycle, 6s) ease-out infinite var(--shoot-delay, 0s);
+}
+body[data-bg="night-sky"] .shooting-star-track::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 80px; height: 1.5px;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.9));
+  border-radius: 2px;
+}
+body[data-bg="night-sky"] .shooting-star-track::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 80px;
+  transform: translateY(-50%);
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(255,255,255,0.6);
+}
+@keyframes shoot {
+  0%, 82% { transform: translateX(-300px); opacity: 0; }
+  83%      { opacity: 1; }
+  90%      { opacity: 1; }
+  100%     { transform: translateX(0); opacity: 0; }
+}
+
+
+@media (max-width: 768px) {
+  body[data-bg="night-sky"] .aurora-container { opacity: 0.4; }
+  body[data-bg="night-sky"] .aurora-1 { height: 22%; animation-duration: 10s; }
+  body[data-bg="night-sky"] .aurora-2 { height: 18%; animation-duration: 13s; }
+  body[data-bg="night-sky"] .aurora-3 { height: 15%; animation-duration: 15s; }
+  body[data-bg="night-sky"] .aurora-4 { height: 16%; animation-duration: 17s; }
+  body[data-bg="night-sky"] .aurora { filter: blur(60px); }
+  body[data-bg="night-sky"] .shooting-star { display: none; }
+}
+@media (max-width: 480px) {
+  body[data-bg="night-sky"] .aurora-container { opacity: 0.3; }
+  body[data-bg="night-sky"] .aurora { filter: blur(45px); }
 }

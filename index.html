@@ -142,6 +142,26 @@
 
   <div class="bg"></div>
 
+  <!-- Night sky background (hidden by default; shown via [data-bg]) -->
+  <div class="night-sky" aria-hidden="true">
+    <div class="stars-layer" id="stars"></div>
+    <div class="shooting-star" style="top:10%;left:12%;--shoot-angle:28deg;--shoot-cycle:18s;--shoot-delay:2s;">
+      <div class="shooting-star-track"></div>
+    </div>
+    <div class="shooting-star" style="top:22%;right:15%;--shoot-angle:130deg;--shoot-cycle:25s;--shoot-delay:10s;">
+      <div class="shooting-star-track"></div>
+    </div>
+    <div class="shooting-star" style="top:8%;left:55%;--shoot-angle:145deg;--shoot-cycle:32s;--shoot-delay:5s;">
+      <div class="shooting-star-track"></div>
+    </div>
+    <div class="aurora-container">
+      <div class="aurora aurora-1"></div>
+      <div class="aurora aurora-2"></div>
+      <div class="aurora aurora-3"></div>
+      <div class="aurora aurora-4"></div>
+    </div>
+  </div>
+
   <main>
     <div class="profile">
       <img class="avatar" src="images/avatar.png" alt="Art by Komori Takami" title="Art by Komori Takami"/>
@@ -200,5 +220,39 @@
       </a>
     </nav>
   </main>
+
+  <script>
+  (function () {
+    var themes = ['circuit', 'night-sky'];
+    var chosen = sessionStorage.getItem('bg-theme');
+    if (!chosen || themes.indexOf(chosen) === -1) {
+      chosen = themes[Math.floor(Math.random() * themes.length)];
+      sessionStorage.setItem('bg-theme', chosen);
+    }
+    if (chosen === 'night-sky') {
+      document.body.dataset.bg = 'night-sky';
+      var stars = document.getElementById('stars');
+      if (!stars) return;
+      var counts = { 'star-sm': 350, 'star-md': 120, 'star-lg': 40, 'star-xl': 10 };
+      var twinkleClasses = ['twinkle-1', 'twinkle-2', 'twinkle-3'];
+      for (var cls in counts) {
+        (function (c, n) {
+          for (var i = 0; i < n; i++) {
+            var s = document.createElement('div');
+            s.className = 'star ' + c;
+            s.style.top = Math.random() * 100 + '%';
+            s.style.left = Math.random() * 100 + '%';
+            if (Math.random() < 0.3 && c !== 'star-sm') {
+              s.classList.add(twinkleClasses[Math.floor(Math.random() * 3)]);
+              s.style.setProperty('--dur', (3 + Math.random() * 5).toFixed(1) + 's');
+              s.style.setProperty('--delay', (Math.random() * 8).toFixed(1) + 's');
+            }
+            stars.appendChild(s);
+          }
+        })(cls, counts[cls]);
+      }
+    }
+  })();
+  </script>
 </body>
 </html>

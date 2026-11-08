@@ -80,3 +80,16 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .refsheet {
+    width: 95vw;
+    margin-left: 0;
+    left: 0;
+  }
+
+  .refsheet img {
+    width: 100%;
+    height: auto;
+  }
+}
