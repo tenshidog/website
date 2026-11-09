@@ -1,19 +1,30 @@
 .avatar {
   display: block;
-  position: relative;
   width: 114px;
   height: 114px;
   margin: 0 auto 1rem;
   border-radius: 50%;
+  text-decoration: none;
+  transform: translateZ(0);   
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar[data-style="circuit"] {
   background: linear-gradient(135deg, var(--purple-400), var(--purple-700));
   box-shadow: 0 0 0 4px rgba(148, 53, 247, 0.15), 0 8px 32px rgba(107, 33, 168, 0.35);
-  overflow: hidden;
-  text-decoration: none;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar[data-style="night-sky"] {
+  box-shadow: 0 0 0 4px rgba(150, 200, 255, 0.35), 0 8px 32px rgba(100, 160, 255, 0.3);
+}
+
+.avatar[data-style="blossom"] {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.45), 0 8px 32px rgba(120, 70, 150, 0.3);
 }
 
 .avatar:hover {
   transform: translateY(-2px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .avatar img {
@@ -21,6 +32,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;      
 }
 
 .about-content {
