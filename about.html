@@ -15,113 +15,297 @@
 <body>
 
   <!-- Looking for something? -->
-  <svg class="traces" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circuit background. Glow and blur are pre-built into layered strokes (no filters),
+       and the left/right fade is a CSS mask, so each frame only redraws plain lines. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="sharpGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
-        <stop offset="0"    stop-color="#fff"/>
-        <stop offset="0.25" stop-color="#fff"/>
-        <stop offset="0.35" stop-color="#000"/>
-        <stop offset="0.65" stop-color="#000"/>
-        <stop offset="0.75" stop-color="#fff"/>
-        <stop offset="1"    stop-color="#fff"/>
-      </linearGradient>
-      <linearGradient id="blurGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
-        <stop offset="0"    stop-color="#000"/>
-        <stop offset="0.25" stop-color="#000"/>
-        <stop offset="0.35" stop-color="#fff"/>
-        <stop offset="0.4"  stop-color="#fff"/>
-        <stop offset="0.45" stop-color="#000"/>
-        <stop offset="0.55" stop-color="#000"/>
-        <stop offset="0.6"  stop-color="#fff"/>
-        <stop offset="0.65" stop-color="#fff"/>
-        <stop offset="0.75" stop-color="#000"/>
-        <stop offset="1"    stop-color="#000"/>
-      </linearGradient>
-      <mask id="sharpMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
-        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#sharpGrad)"/>
-      </mask>
-      <mask id="blurMask" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
-        <rect x="-5000" y="-5000" width="12000" height="12000" fill="url(#blurGrad)"/>
-      </mask>
-      <filter id="traceBlur" filterUnits="userSpaceOnUse" x="-5000" y="-5000" width="12000" height="12000">
-        <feGaussianBlur stdDeviation="2"/>
-      </filter>
-      <g id="traceSrc">
+      <radialGradient id="traceNodeSoft"><stop offset="0.000" stop-color="#9333ea" stop-opacity="1.000"/><stop offset="0.071" stop-color="#9333ea" stop-opacity="0.980"/><stop offset="0.143" stop-color="#9333ea" stop-opacity="0.914"/><stop offset="0.214" stop-color="#9333ea" stop-opacity="0.816"/><stop offset="0.286" stop-color="#9333ea" stop-opacity="0.693"/><stop offset="0.357" stop-color="#9333ea" stop-opacity="0.561"/><stop offset="0.429" stop-color="#9333ea" stop-opacity="0.430"/><stop offset="0.500" stop-color="#9333ea" stop-opacity="0.311"/><stop offset="0.571" stop-color="#9333ea" stop-opacity="0.209"/><stop offset="0.643" stop-color="#9333ea" stop-opacity="0.131"/><stop offset="0.714" stop-color="#9333ea" stop-opacity="0.078"/><stop offset="0.786" stop-color="#9333ea" stop-opacity="0.041"/><stop offset="0.857" stop-color="#9333ea" stop-opacity="0.020"/><stop offset="0.929" stop-color="#9333ea" stop-opacity="0.008"/><stop offset="1.000" stop-color="#9333ea" stop-opacity="0.000"/></radialGradient>
+      <g id="traceSharp">
         <g class="trace">
           <path class="trace-path" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
-          <path class="trace-pulse" pathLength="100" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
-          <circle class="trace-node" cx="0" cy="120" r="3"/>
-          <circle class="trace-node" cx="120" cy="120" r="2.5"/>
-          <circle class="trace-node" cx="160" cy="160" r="2.5"/>
-          <circle class="trace-node" cx="360" cy="160" r="2.5"/>
-          <circle class="trace-node" cx="400" cy="200" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:5s;animation-delay:0s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <circle class="trace-node" cx="0" cy="120" r="3" style="animation-delay:0.9s"/>
+          <circle class="trace-node" cx="120" cy="120" r="2.5" style="animation-delay:1.5s"/>
+          <circle class="trace-node" cx="160" cy="160" r="2.5" style="animation-delay:2s"/>
+          <circle class="trace-node" cx="360" cy="160" r="2.5" style="animation-delay:2.5s"/>
+          <circle class="trace-node" cx="400" cy="200" r="2.5" style="animation-delay:3s"/>
           <circle class="trace-node" cx="560" cy="200" r="2.5"/>
           <circle class="trace-node" cx="600" cy="240" r="2.5"/>
           <circle class="trace-node" cx="648" cy="288" r="3"/>
         </g>
         <g class="trace">
           <path class="trace-path" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
-          <path class="trace-pulse" pathLength="100" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
-          <circle class="trace-node" cx="0" cy="380" r="3"/>
-          <circle class="trace-node" cx="200" cy="380" r="2.5"/>
-          <circle class="trace-node" cx="240" cy="340" r="2.5"/>
-          <circle class="trace-node" cx="440" cy="340" r="2.5"/>
-          <circle class="trace-node" cx="480" cy="380" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:6s;animation-delay:-1.5s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <circle class="trace-node" cx="0" cy="380" r="3" style="animation-delay:0.7s"/>
+          <circle class="trace-node" cx="200" cy="380" r="2.5" style="animation-delay:1.3s"/>
+          <circle class="trace-node" cx="240" cy="340" r="2.5" style="animation-delay:1.8s"/>
+          <circle class="trace-node" cx="440" cy="340" r="2.5" style="animation-delay:2.3s"/>
+          <circle class="trace-node" cx="480" cy="380" r="2.5" style="animation-delay:2.8s"/>
           <circle class="trace-node" cx="600" cy="380" r="2.5"/>
           <circle class="trace-node" cx="648" cy="380" r="3"/>
         </g>
         <g class="trace">
           <path class="trace-path" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
-          <path class="trace-pulse" pathLength="100" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
-          <circle class="trace-node" cx="0" cy="660" r="3"/>
-          <circle class="trace-node" cx="140" cy="660" r="2.5"/>
-          <circle class="trace-node" cx="180" cy="700" r="2.5"/>
-          <circle class="trace-node" cx="380" cy="700" r="2.5"/>
-          <circle class="trace-node" cx="420" cy="660" r="2.5"/>
-          <circle class="trace-node" cx="540" cy="660" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:5.5s;animation-delay:-3s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <circle class="trace-node" cx="0" cy="660" r="3" style="animation-delay:1.1s"/>
+          <circle class="trace-node" cx="140" cy="660" r="2.5" style="animation-delay:1.7s"/>
+          <circle class="trace-node" cx="180" cy="700" r="2.5" style="animation-delay:2.3s"/>
+          <circle class="trace-node" cx="380" cy="700" r="2.5" style="animation-delay:2.9s"/>
+          <circle class="trace-node" cx="420" cy="660" r="2.5" style="animation-delay:3.5s"/>
+          <circle class="trace-node" cx="540" cy="660" r="2.5" style="animation-delay:4s"/>
           <circle class="trace-node" cx="580" cy="700" r="2.5"/>
           <circle class="trace-node" cx="648" cy="700" r="3"/>
         </g>
         <g class="trace">
           <path class="trace-path" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
-          <path class="trace-pulse" pathLength="100" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
-          <circle class="trace-node" cx="1440" cy="180" r="3"/>
-          <circle class="trace-node" cx="1360" cy="180" r="2.5"/>
-          <circle class="trace-node" cx="1320" cy="220" r="2.5"/>
-          <circle class="trace-node" cx="1160" cy="220" r="2.5"/>
-          <circle class="trace-node" cx="1120" cy="260" r="2.5"/>
-          <circle class="trace-node" cx="960" cy="260" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:6.5s;animation-delay:-0.8s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <circle class="trace-node" cx="1440" cy="180" r="3" style="animation-delay:0.7s"/>
+          <circle class="trace-node" cx="1360" cy="180" r="2.5" style="animation-delay:1.1s"/>
+          <circle class="trace-node" cx="1320" cy="220" r="2.5" style="animation-delay:1.5s"/>
+          <circle class="trace-node" cx="1160" cy="220" r="2.5" style="animation-delay:1.9s"/>
+          <circle class="trace-node" cx="1120" cy="260" r="2.5" style="animation-delay:2.3s"/>
+          <circle class="trace-node" cx="960" cy="260" r="2.5" style="animation-delay:2.7s"/>
           <circle class="trace-node" cx="920" cy="300" r="2.5"/>
           <circle class="trace-node" cx="792" cy="300" r="3"/>
         </g>
         <g class="trace">
           <path class="trace-path" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
-          <path class="trace-pulse" pathLength="100" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
-          <circle class="trace-node" cx="1440" cy="420" r="3"/>
-          <circle class="trace-node" cx="1340" cy="420" r="2.5"/>
-          <circle class="trace-node" cx="1300" cy="460" r="2.5"/>
-          <circle class="trace-node" cx="1100" cy="460" r="2.5"/>
-          <circle class="trace-node" cx="1060" cy="500" r="2.5"/>
-          <circle class="trace-node" cx="860" cy="500" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:5s;animation-delay:-2.2s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <circle class="trace-node" cx="1440" cy="420" r="3" style="animation-delay:0.4s"/>
+          <circle class="trace-node" cx="1340" cy="420" r="2.5" style="animation-delay:0.9s"/>
+          <circle class="trace-node" cx="1300" cy="460" r="2.5" style="animation-delay:1.4s"/>
+          <circle class="trace-node" cx="1100" cy="460" r="2.5" style="animation-delay:1.9s"/>
+          <circle class="trace-node" cx="1060" cy="500" r="2.5" style="animation-delay:2.4s"/>
+          <circle class="trace-node" cx="860" cy="500" r="2.5" style="animation-delay:2.9s"/>
           <circle class="trace-node" cx="820" cy="460" r="2.5"/>
           <circle class="trace-node" cx="792" cy="460" r="3"/>
         </g>
         <g class="trace">
           <path class="trace-path" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
-          <path class="trace-pulse" pathLength="100" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
-          <circle class="trace-node" cx="1440" cy="640" r="3"/>
-          <circle class="trace-node" cx="1320" cy="640" r="2.5"/>
-          <circle class="trace-node" cx="1280" cy="680" r="2.5"/>
-          <circle class="trace-node" cx="1100" cy="680" r="2.5"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(155,65,238);stroke-opacity:0.013;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(155,65,238);stroke-opacity:0.019;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(155,65,238);stroke-opacity:0.025;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(155,65,238);stroke-opacity:0.05;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:11.0;stroke:rgb(155,65,238);stroke-opacity:0.055;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.6;stroke:rgb(155,65,238);stroke-opacity:0.06;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.6;stroke:rgb(155,65,238);stroke-opacity:0.065;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.8;stroke:rgb(155,65,238);stroke-opacity:0.058;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.2;stroke:rgb(155,65,238);stroke-opacity:0.195;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:2.0;stroke:rgb(147,51,234);stroke-opacity:1.0;animation-duration:6s;animation-delay:-4s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <circle class="trace-node" cx="1440" cy="640" r="3" style="animation-delay:0.9s"/>
+          <circle class="trace-node" cx="1320" cy="640" r="2.5" style="animation-delay:1.5s"/>
+          <circle class="trace-node" cx="1280" cy="680" r="2.5" style="animation-delay:2.1s"/>
+          <circle class="trace-node" cx="1100" cy="680" r="2.5" style="animation-delay:2.7s"/>
           <circle class="trace-node" cx="1060" cy="640" r="2.5"/>
           <circle class="trace-node" cx="880" cy="640" r="2.5"/>
           <circle class="trace-node" cx="792" cy="640" r="3"/>
         </g>
       </g>
+      <g id="traceSoft">
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.910 97.090;animation-duration:5s;animation-delay:-0.052s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.397 96.603;animation-duration:5s;animation-delay:-0.040s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.746 96.254;animation-duration:5s;animation-delay:-0.031s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:4.025 95.975;animation-duration:5s;animation-delay:-0.024s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.247 95.753;animation-duration:5s;animation-delay:-0.019s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.415 95.585;animation-duration:5s;animation-delay:-0.015s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.554 95.446;animation-duration:5s;animation-delay:-0.011s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.679 95.321;animation-duration:5s;animation-delay:-0.008s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.791 95.209;animation-duration:5s;animation-delay:-0.005s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.895 95.105;animation-duration:5s;animation-delay:-0.003s" d="M 0 120 L 120 120 L 160 160 L 360 160 L 400 200 L 560 200 L 600 240 L 648 288"/>
+          <circle class="trace-node-soft" cx="0" cy="120" r="7.00" style="animation-delay:0.9s"/>
+          <circle class="trace-node-soft" cx="120" cy="120" r="7.00" style="animation-delay:1.5s"/>
+          <circle class="trace-node-soft" cx="160" cy="160" r="7.00" style="animation-delay:2s"/>
+          <circle class="trace-node-soft" cx="360" cy="160" r="7.00" style="animation-delay:2.5s"/>
+          <circle class="trace-node-soft" cx="400" cy="200" r="7.00" style="animation-delay:3s"/>
+          <circle class="trace-node-soft" cx="560" cy="200" r="7.00"/>
+          <circle class="trace-node-soft" cx="600" cy="240" r="7.00"/>
+          <circle class="trace-node-soft" cx="648" cy="288" r="7.00"/>
+        </g>
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.798 97.202;animation-duration:6s;animation-delay:-1.566s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.312 96.688;animation-duration:6s;animation-delay:-1.551s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.679 96.321;animation-duration:6s;animation-delay:-1.540s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:3.972 96.028;animation-duration:6s;animation-delay:-1.531s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.207 95.793;animation-duration:6s;animation-delay:-1.524s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.383 95.617;animation-duration:6s;animation-delay:-1.518s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.530 95.470;animation-duration:6s;animation-delay:-1.514s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.662 95.338;animation-duration:6s;animation-delay:-1.510s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.780 95.220;animation-duration:6s;animation-delay:-1.507s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.890 95.110;animation-duration:6s;animation-delay:-1.503s" d="M 0 380 L 200 380 L 240 340 L 440 340 L 480 380 L 600 380 L 648 380"/>
+          <circle class="trace-node-soft" cx="0" cy="380" r="7.00" style="animation-delay:0.7s"/>
+          <circle class="trace-node-soft" cx="200" cy="380" r="7.00" style="animation-delay:1.3s"/>
+          <circle class="trace-node-soft" cx="240" cy="340" r="7.00" style="animation-delay:1.8s"/>
+          <circle class="trace-node-soft" cx="440" cy="340" r="7.00" style="animation-delay:2.3s"/>
+          <circle class="trace-node-soft" cx="480" cy="380" r="7.00" style="animation-delay:2.8s"/>
+          <circle class="trace-node-soft" cx="600" cy="380" r="7.00"/>
+          <circle class="trace-node-soft" cx="648" cy="380" r="7.00"/>
+        </g>
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.850 97.150;animation-duration:5.5s;animation-delay:-3.059s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.352 96.648;animation-duration:5.5s;animation-delay:-3.045s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.710 96.290;animation-duration:5.5s;animation-delay:-3.035s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:3.997 96.003;animation-duration:5.5s;animation-delay:-3.028s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.226 95.774;animation-duration:5.5s;animation-delay:-3.021s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.398 95.602;animation-duration:5.5s;animation-delay:-3.017s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.541 95.459;animation-duration:5.5s;animation-delay:-3.013s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.670 95.330;animation-duration:5.5s;animation-delay:-3.009s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.785 95.215;animation-duration:5.5s;animation-delay:-3.006s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.893 95.107;animation-duration:5.5s;animation-delay:-3.003s" d="M 0 660 L 140 660 L 180 700 L 380 700 L 420 660 L 540 660 L 580 700 L 648 700"/>
+          <circle class="trace-node-soft" cx="0" cy="660" r="7.00" style="animation-delay:1.1s"/>
+          <circle class="trace-node-soft" cx="140" cy="660" r="7.00" style="animation-delay:1.7s"/>
+          <circle class="trace-node-soft" cx="180" cy="700" r="7.00" style="animation-delay:2.3s"/>
+          <circle class="trace-node-soft" cx="380" cy="700" r="7.00" style="animation-delay:2.9s"/>
+          <circle class="trace-node-soft" cx="420" cy="660" r="7.00" style="animation-delay:3.5s"/>
+          <circle class="trace-node-soft" cx="540" cy="660" r="7.00" style="animation-delay:4s"/>
+          <circle class="trace-node-soft" cx="580" cy="700" r="7.00"/>
+          <circle class="trace-node-soft" cx="648" cy="700" r="7.00"/>
+        </g>
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.850 97.150;animation-duration:6.5s;animation-delay:-0.870s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.352 96.648;animation-duration:6.5s;animation-delay:-0.854s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.710 96.290;animation-duration:6.5s;animation-delay:-0.842s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:3.997 96.003;animation-duration:6.5s;animation-delay:-0.833s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.226 95.774;animation-duration:6.5s;animation-delay:-0.825s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.398 95.602;animation-duration:6.5s;animation-delay:-0.820s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.541 95.459;animation-duration:6.5s;animation-delay:-0.815s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.670 95.330;animation-duration:6.5s;animation-delay:-0.811s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.785 95.215;animation-duration:6.5s;animation-delay:-0.807s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.893 95.107;animation-duration:6.5s;animation-delay:-0.803s" d="M 1440 180 L 1360 180 L 1320 220 L 1160 220 L 1120 260 L 960 260 L 920 300 L 792 300"/>
+          <circle class="trace-node-soft" cx="1440" cy="180" r="7.00" style="animation-delay:0.7s"/>
+          <circle class="trace-node-soft" cx="1360" cy="180" r="7.00" style="animation-delay:1.1s"/>
+          <circle class="trace-node-soft" cx="1320" cy="220" r="7.00" style="animation-delay:1.5s"/>
+          <circle class="trace-node-soft" cx="1160" cy="220" r="7.00" style="animation-delay:1.9s"/>
+          <circle class="trace-node-soft" cx="1120" cy="260" r="7.00" style="animation-delay:2.3s"/>
+          <circle class="trace-node-soft" cx="960" cy="260" r="7.00" style="animation-delay:2.7s"/>
+          <circle class="trace-node-soft" cx="920" cy="300" r="7.00"/>
+          <circle class="trace-node-soft" cx="792" cy="300" r="7.00"/>
+        </g>
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.850 97.150;animation-duration:5s;animation-delay:-2.254s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.352 96.648;animation-duration:5s;animation-delay:-2.241s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.710 96.290;animation-duration:5s;animation-delay:-2.232s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:3.997 96.003;animation-duration:5s;animation-delay:-2.225s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.226 95.774;animation-duration:5s;animation-delay:-2.219s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.398 95.602;animation-duration:5s;animation-delay:-2.215s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.541 95.459;animation-duration:5s;animation-delay:-2.211s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.670 95.330;animation-duration:5s;animation-delay:-2.208s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.785 95.215;animation-duration:5s;animation-delay:-2.205s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.893 95.107;animation-duration:5s;animation-delay:-2.203s" d="M 1440 420 L 1340 420 L 1300 460 L 1100 460 L 1060 500 L 860 500 L 820 460 L 792 460"/>
+          <circle class="trace-node-soft" cx="1440" cy="420" r="7.00" style="animation-delay:0.4s"/>
+          <circle class="trace-node-soft" cx="1340" cy="420" r="7.00" style="animation-delay:0.9s"/>
+          <circle class="trace-node-soft" cx="1300" cy="460" r="7.00" style="animation-delay:1.4s"/>
+          <circle class="trace-node-soft" cx="1100" cy="460" r="7.00" style="animation-delay:1.9s"/>
+          <circle class="trace-node-soft" cx="1060" cy="500" r="7.00" style="animation-delay:2.4s"/>
+          <circle class="trace-node-soft" cx="860" cy="500" r="7.00" style="animation-delay:2.9s"/>
+          <circle class="trace-node-soft" cx="820" cy="460" r="7.00"/>
+          <circle class="trace-node-soft" cx="792" cy="460" r="7.00"/>
+        </g>
+        <g class="trace">
+          <path class="trace-line-soft" style="stroke-width:10.4;stroke:rgb(58,0,101);stroke-opacity:0.011" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-line-soft" style="stroke-width:8.0;stroke:rgb(58,0,101);stroke-opacity:0.027" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-line-soft" style="stroke-width:6.0;stroke:rgb(58,0,101);stroke-opacity:0.035" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-line-soft" style="stroke-width:4.2;stroke:rgb(58,0,101);stroke-opacity:0.036" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-line-soft" style="stroke-width:2.6;stroke:rgb(58,0,101);stroke-opacity:0.032" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-line-soft" style="stroke-width:1.2;stroke:rgb(58,0,101);stroke-opacity:0.016" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:30.0;stroke:rgb(152,56,237);stroke-opacity:0.015;stroke-dasharray:2.798 97.202;animation-duration:6s;animation-delay:-4.066s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:23.0;stroke:rgb(152,56,237);stroke-opacity:0.021;stroke-dasharray:3.312 96.688;animation-duration:6s;animation-delay:-4.051s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:18.0;stroke:rgb(152,56,237);stroke-opacity:0.036;stroke-dasharray:3.679 96.321;animation-duration:6s;animation-delay:-4.040s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:14.0;stroke:rgb(152,56,237);stroke-opacity:0.052;stroke-dasharray:3.972 96.028;animation-duration:6s;animation-delay:-4.031s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:10.8;stroke:rgb(152,56,237);stroke-opacity:0.073;stroke-dasharray:4.207 95.793;animation-duration:6s;animation-delay:-4.024s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:8.4;stroke:rgb(152,56,237);stroke-opacity:0.107;stroke-dasharray:4.383 95.617;animation-duration:6s;animation-delay:-4.018s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:6.4;stroke:rgb(152,56,237);stroke-opacity:0.12;stroke-dasharray:4.530 95.470;animation-duration:6s;animation-delay:-4.014s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:4.6;stroke:rgb(152,56,237);stroke-opacity:0.145;stroke-dasharray:4.662 95.338;animation-duration:6s;animation-delay:-4.010s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:3.0;stroke:rgb(152,56,237);stroke-opacity:0.139;stroke-dasharray:4.780 95.220;animation-duration:6s;animation-delay:-4.007s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <path class="trace-pulse" pathLength="100" style="stroke-width:1.5;stroke:rgb(152,56,237);stroke-opacity:0.062;stroke-dasharray:4.890 95.110;animation-duration:6s;animation-delay:-4.003s" d="M 1440 640 L 1320 640 L 1280 680 L 1100 680 L 1060 640 L 880 640 L 792 640"/>
+          <circle class="trace-node-soft" cx="1440" cy="640" r="7.00" style="animation-delay:0.9s"/>
+          <circle class="trace-node-soft" cx="1320" cy="640" r="7.00" style="animation-delay:1.5s"/>
+          <circle class="trace-node-soft" cx="1280" cy="680" r="7.00" style="animation-delay:2.1s"/>
+          <circle class="trace-node-soft" cx="1100" cy="680" r="7.00" style="animation-delay:2.7s"/>
+          <circle class="trace-node-soft" cx="1060" cy="640" r="7.00"/>
+          <circle class="trace-node-soft" cx="880" cy="640" r="7.00"/>
+          <circle class="trace-node-soft" cx="792" cy="640" r="7.00"/>
+        </g>
+      </g>
     </defs>
-    <g mask="url(#sharpMask)"><use href="#traceSrc"/></g>
-    <g mask="url(#blurMask)" filter="url(#traceBlur)"><use href="#traceSrc"/></g>
   </svg>
+  <svg class="traces traces-sharp" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#traceSharp"/></svg>
+  <svg class="traces traces-soft" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><use href="#traceSoft"/></svg>
 
   <div class="bg"></div>
 
