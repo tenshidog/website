@@ -422,7 +422,7 @@ main {
 
 
 body[data-bg="night-sky"] {
-  overflow: auto;
+  overflow: hidden;
 }
 
 body[data-bg="night-sky"] .night-sky {
