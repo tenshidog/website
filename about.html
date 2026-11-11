@@ -802,6 +802,7 @@
       if (stars) {
         var counts = { 'star-sm': 350, 'star-md': 120, 'star-lg': 40, 'star-xl': 10 };
         var twinkleClasses = ['twinkle-1', 'twinkle-2', 'twinkle-3'];
+        var frag = document.createDocumentFragment();
         for (var cls in counts) {
           (function (c, n) {
             for (var i = 0; i < n; i++) {
@@ -814,10 +815,11 @@
                 s.style.setProperty('--dur', (3 + Math.random() * 5).toFixed(1) + 's');
                 s.style.setProperty('--delay', (Math.random() * 8).toFixed(1) + 's');
               }
-              stars.appendChild(s);
+              frag.appendChild(s);
             }
           })(cls, counts[cls]);
         }
+        stars.appendChild(frag);
       }
     }
     var avatar = document.querySelector('.avatar');
